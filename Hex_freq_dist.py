@@ -13,17 +13,31 @@
 #############################################################
     
 import sys
+import matplotlib.pyplot as plt
 hex_name = sys.argv[1]
 hex_file = open(hex_name)
 hex_file = hex_file.read()
 hex_file = hex_file.split(" ")
 hex_vals = {}
-hex_count = []
 
 for val in hex_file:
     if val in hex_vals:
         hex_vals[val] = hex_vals[val]+1
+    elif "\n" in val:
+        hex_vals["0a"] == hex_vals["0a"]+1
     else:
-        hex_vals[val] = 0
+        hex_vals[val] = 1
 
-print hex_vals
+hex_keys = hex_vals.keys()
+hex_keys.sort()
+for key in hex_keys:
+    print "%s : %d" % (key, hex_vals[key])
+
+pos = len(hex_keys)
+width = 1.0
+ax = plt.axes()
+ax.set_xticks(pos+(width/2))
+ax.set_xticklebels(hex_keys)
+
+plot.bar(pos, hex_vals[hex_keys], width, color='r')
+plt.show()
