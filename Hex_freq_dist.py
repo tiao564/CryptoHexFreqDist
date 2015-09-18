@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python 
 #################
 #Dylan Guldy    #
 #Cryptogropy    #
@@ -26,7 +26,8 @@ for val in hex_file:
     if val in hex_vals:
         hex_vals[val] = hex_vals[val]+1
     elif "\n" in val:
-        hex_vals["0a"] == hex_vals["0a"]+1
+        temp_val = val.replace("\n","")
+        hex_vals[temp_val] = hex_vals[temp_val]+1
     else:
         hex_vals[val] = 1
 
